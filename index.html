@@ -1,0 +1,161 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@labor-digital/json-api</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@labor-digital/json-api</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>@labor-digital/json-api</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#json-api" id="json-api" style="color: inherit; text-decoration: none;">
+					<h1>Json API</h1>
+				</a>
+				<p>Provides the implementation to communicate with an <a href="https://jsonapi.org/">json api compatible</a> endpoint.
+				The package is build with <a href="https://www.npmjs.com/package/axios">axios</a> as http client and utilizes <a href="https://www.npmjs.com/package/json-api-serializer">jsonapi-serializer</a> to normalize the results into javascript objectes.</p>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<p>Install this package using npm:</p>
+				<pre><code><span class="hljs-built_in">npm</span> install @labor-digital/json-api</code></pre>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {JsonApiState} <span class="hljs-keyword">from</span> <span class="hljs-string">"./lib/JsonApiState"</span>;
+<span class="hljs-keyword">import</span> {JsonApi} <span class="hljs-keyword">from</span> <span class="hljs-string">"./lib/JsonApi"</span>;
+
+<span class="hljs-comment">// Create the instance</span>
+<span class="hljs-keyword">const</span> api = <span class="hljs-keyword">new</span> JsonApi({baseUrl: <span class="hljs-string">"https://example.org/api/resources"</span>});
+
+<span class="hljs-comment">// Request the resources of type "myResource" that are on page 2</span>
+<span class="hljs-comment">// The query object has some types already defined but as specified in the json-api </span>
+<span class="hljs-comment">// definition, it can be extended with your own keys</span>
+<span class="hljs-keyword">const</span> results = api.get(<span class="hljs-string">"myResource"</span>, {page: {<span class="hljs-built_in">number</span>: <span class="hljs-number">2</span>}});
+
+<span class="hljs-comment">// Iterate all results in the list and print the value of "myKey" into the console</span>
+results.forEach(<span class="hljs-function">(<span class="hljs-params">result: JsonApiState</span>) =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(result.get(<span class="hljs-string">"myKey"</span>));
+});
+
+<span class="hljs-comment">// You can also request a single resource by using the unique id as a lookup query</span>
+<span class="hljs-keyword">const</span> state = api.getSingle(<span class="hljs-string">"myResource"</span>, <span class="hljs-number">12</span>);
+<span class="hljs-built_in">console</span>.log(state.get(<span class="hljs-string">"myKey"</span>));</code></pre>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h2>Documentation</h2>
+				</a>
+				<p>The documentation / API can be found <a href="https://json-api.labor.tools">here</a> but is also rendered at &quot;./doc/index.html&quot; for local usage</p>
+				<a href="#postcardware" id="postcardware" style="color: inherit; text-decoration: none;">
+					<h2>Postcardware</h2>
+				</a>
+				<p>You&#39;re free to use this package, but if it makes it to your production environment we highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using.</p>
+				<p>Our address is: LABOR.digital - Fischtorplatz 21 - 55116 Mainz, Germany</p>
+				<p>We publish all received postcards on our <a href="https://labor.digital">company website</a>.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_jsonapi_.html">&quot;<wbr>Json<wbr>Api&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_jsonapi_interfaces_.html">&quot;<wbr>Json<wbr>Api.interfaces&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_jsonapistate_.html">&quot;<wbr>Json<wbr>Api<wbr>State&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_jsonapistatelist_.html">&quot;<wbr>Json<wbr>Api<wbr>State<wbr>List&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_state_.html">&quot;<wbr>State&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
