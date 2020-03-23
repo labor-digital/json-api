@@ -26,9 +26,6 @@ jobs:
         name: Build library
         run: npm run build
       -
-        name: Build library for the browser
-        run: cd browserBuild && npm install && npm run build
-      -
         name: Build documentation
         run: npm run doc
       -
