@@ -16,12 +16,12 @@
  * Last modified: 2019.11.26 at 20:24
  */
 
-import {PlainObject} from "@labor/helferlein/lib/Interfaces/PlainObject";
-import {forEach} from "@labor/helferlein/lib/Lists/forEach";
-import {getPath} from "@labor/helferlein/lib/Lists/Paths/getPath";
-import {hasPath} from "@labor/helferlein/lib/Lists/Paths/hasPath";
-import {isPlainObject} from "@labor/helferlein/lib/Types/isPlainObject";
-import {isUndefined} from "@labor/helferlein/lib/Types/isUndefined";
+import {PlainObject} from "@labor-digital/helferlein/lib/Interfaces/PlainObject";
+import {forEach} from "@labor-digital/helferlein/lib/Lists/forEach";
+import {getPath} from "@labor-digital/helferlein/lib/Lists/Paths/getPath";
+import {hasPath} from "@labor-digital/helferlein/lib/Lists/Paths/hasPath";
+import {isPlainObject} from "@labor-digital/helferlein/lib/Types/isPlainObject";
+import {isUndefined} from "@labor-digital/helferlein/lib/Types/isUndefined";
 import {ApiPagination, JsonApiResponse, StateListForEachCallbackType} from "./JsonApi.interfaces";
 import {JsonApiState} from "./JsonApiState";
 import {State} from "./State";

@@ -16,13 +16,13 @@
  * Last modified: 2019.09.03 at 08:58
  */
 
-import {PlainObject} from "@labor/helferlein/lib/Interfaces/PlainObject";
-import {getPath} from "@labor/helferlein/lib/Lists/Paths/getPath";
-import {isArray} from "@labor/helferlein/lib/Types/isArray";
-import {isEmpty} from "@labor/helferlein/lib/Types/isEmpty";
-import {isPlainObject} from "@labor/helferlein/lib/Types/isPlainObject";
-import {isString} from "@labor/helferlein/lib/Types/isString";
-import {isUndefined} from "@labor/helferlein/lib/Types/isUndefined";
+import {PlainObject} from "@labor-digital/helferlein/lib/Interfaces/PlainObject";
+import {getPath} from "@labor-digital/helferlein/lib/Lists/Paths/getPath";
+import {isArray} from "@labor-digital/helferlein/lib/Types/isArray";
+import {isEmpty} from "@labor-digital/helferlein/lib/Types/isEmpty";
+import {isPlainObject} from "@labor-digital/helferlein/lib/Types/isPlainObject";
+import {isString} from "@labor-digital/helferlein/lib/Types/isString";
+import {isUndefined} from "@labor-digital/helferlein/lib/Types/isUndefined";
 
 /**
  * An object representation of a simple state store.

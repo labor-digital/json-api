@@ -16,20 +16,20 @@
  * Last modified: 2019.08.11 at 21:25
  */
 
-import {PlainObject} from "@labor/helferlein/lib/Interfaces/PlainObject";
-import {forEach} from "@labor/helferlein/lib/Lists/forEach";
-import {getPath} from "@labor/helferlein/lib/Lists/Paths/getPath";
-import {debouncePromise} from "@labor/helferlein/lib/Misc/debouncePromise";
-import {getGuid} from "@labor/helferlein/lib/Misc/getGuid";
-import {isArray} from "@labor/helferlein/lib/Types/isArray";
-import {isBool} from "@labor/helferlein/lib/Types/isBool";
-import {isEmpty} from "@labor/helferlein/lib/Types/isEmpty";
-import {isNull} from "@labor/helferlein/lib/Types/isNull";
-import {isNumber} from "@labor/helferlein/lib/Types/isNumber";
-import {isObject} from "@labor/helferlein/lib/Types/isObject";
-import {isPlainObject} from "@labor/helferlein/lib/Types/isPlainObject";
-import {isString} from "@labor/helferlein/lib/Types/isString";
-import {isUndefined} from "@labor/helferlein/lib/Types/isUndefined";
+import {PlainObject} from "@labor-digital/helferlein/lib/Interfaces/PlainObject";
+import {forEach} from "@labor-digital/helferlein/lib/Lists/forEach";
+import {getPath} from "@labor-digital/helferlein/lib/Lists/Paths/getPath";
+import {debouncePromise} from "@labor-digital/helferlein/lib/Misc/debouncePromise";
+import {getGuid} from "@labor-digital/helferlein/lib/Misc/getGuid";
+import {isArray} from "@labor-digital/helferlein/lib/Types/isArray";
+import {isBool} from "@labor-digital/helferlein/lib/Types/isBool";
+import {isEmpty} from "@labor-digital/helferlein/lib/Types/isEmpty";
+import {isNull} from "@labor-digital/helferlein/lib/Types/isNull";
+import {isNumber} from "@labor-digital/helferlein/lib/Types/isNumber";
+import {isObject} from "@labor-digital/helferlein/lib/Types/isObject";
+import {isPlainObject} from "@labor-digital/helferlein/lib/Types/isPlainObject";
+import {isString} from "@labor-digital/helferlein/lib/Types/isString";
+import {isUndefined} from "@labor-digital/helferlein/lib/Types/isUndefined";
 import axios, {AxiosInstance, AxiosResponse} from "axios";
 import {Deserializer} from "jsonapi-serializer";
 import {JsonApiArguments, JsonApiGetQuery, JsonApiResponse} from "./JsonApi.interfaces";
