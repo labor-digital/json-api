@@ -1,0 +1,139 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+# [3.3.0] (2020-01-10)
+
+
+### Features
+
+* **JsonApi:** add server response information (status and headers) to the json api response object ([19e7c58])
+* update dependencies ([77b65a9])
+
+
+
+# [3.2.0] (2020-01-07)
+
+
+### Features
+
+* **State:** add new hasValue() method on the state object, to check for empty values ([ab2f56b])
+* update dependencies ([6eb8527])
+
+
+
+# [3.1.0] (2019-12-31)
+
+
+### Features
+
+* update dependencies ([e3bc00d])
+
+
+
+# [3.0.0] (2019-12-30)
+
+
+### Features
+
+* remove translation helper ([e713caa])
+* update dependencies ([c2d0d5a])
+
+
+### BREAKING CHANGES
+
+* translation helper removed + simplify file tree
+
+
+
+## [2.0.2] (2019-12-29)
+
+
+
+## [2.0.1] (2019-11-27)
+
+
+### Bug Fixes
+
+* remove jsonapi-normalizer dependency ([4736bb4])
+
+
+
+# [2.0.0] (2019-11-27)
+
+
+### Features
+
+* simplify objects and use jsonapi-normalizer as de-serializer ([46dbf24])
+
+
+### BREAKING CHANGES
+
+* the deserialized objects may now look different than
+before + changed public api of some objects
+
+
+
+# [1.6.0] (2019-11-08)
+
+
+### Features
+
+* update dependencies ([53f99ac])
+
+
+
+# [1.5.0] (2019-11-08)
+
+
+### Features
+
+* update dependencies ([17628a3])
+
+
+
+# [1.4.0] (2019-10-25)
+
+
+### Bug Fixes
+
+* add error handling for JsonApi.getSingle() method when the json api response was inconsistent ([9f83ac9])
+
+
+### Features
+
+* update dependencies to latest version ([f5ab8e1])
+
+
+
+# [1.3.0] (2019-10-15)
+
+
+### Features
+
+* better implementation for getSingle() ([eccd345])
+
+
+
+# [1.2.0] (2019-09-26)
+
+
+### Features
+
+* add new features and better state handling ([2b2d261])
+
+
+
+# 1.1.0 (2019-08-11)
+
+
+### Bug Fixes
+
+* remove doc generation from pipeline scripts ([7c8522a])
+* remove doc generation from pipeline scripts ([8414fb6])
+* remove tests from pipeline scripts ([7f3ecf6])
+
+
+### Features
+
+* initial commit ([fb1e57c])

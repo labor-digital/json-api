@@ -1,0 +1,33 @@
+{
+	"name": "@labor-digital/json-api",
+	"version": "3.3.0",
+	"description": "Provides the implementation to communicate with an json api compatible endpoint",
+	"directories": {
+		"lib": "lib"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@bitbucket.org/labor-digital/json-api.git"
+	},
+	"homepage": "https://json-api.labor.tools",
+	"scripts": {
+		"build": "node flushLib.js && tsc",
+		"watch": "node flushLib.js && tsc --watch",
+		"doc": "typedoc --out doc --tsconfig ./tsconfig.json src --module commonjs && echo json-api.labor.tools >> doc/CNAME && touch doc/.nojekyll"
+	},
+	"author": "m.neundorfer@labor.digital",
+	"license": "Apache-2.0",
+	"dependencies": {
+		"jsonapi-serializer": "3.6.6"
+	},
+	"peerDependencies": {
+		"axios": "*",
+		"@labor/helferlein": "*"
+	},
+	"devDependencies": {
+		"typedoc": "0.17.3",
+		"@labor/helferlein": "3.15.1",
+		"axios": "0.19.0",
+		"typescript": "3.8.3"
+	}
+}
