@@ -1,6 +1,19 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## 3.4.0 (2020-03-23)
+
+
+### Features
+
+* initial public release ([196ce3c](https://bitbucket.org/labor-digital/json-api/commit/196ce3cb9f0f906c7da595d9fc78a276b1cbcc1d))
+
+
+### Bug Fixes
+
+* fix missing dependencies in code after public release ([83518ad](https://bitbucket.org/labor-digital/json-api/commit/83518ad4eb2e947d5d9c0d335b321d4539c0d7ba))
+* fix missing dependency after public release ([acbe0c3](https://bitbucket.org/labor-digital/json-api/commit/acbe0c388a34598778357ed426ab0821827f5ccf))
 
 # [3.3.0] (2020-01-10)
 
