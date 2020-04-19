@@ -148,7 +148,7 @@ export class JsonApi {
 	 */
 	protected handleAxiosResponse(response: AxiosResponse): Promise<JsonApiState | JsonApiStateList> {
 		// Throw an error if we got a non-200 response code
-		if (response.status !== 200) {
+		if (response.status < 200 || response.status > 299) {
 			let error = getPath(response.data, ["errors", "title"]);
 			if (isUndefined(error)) error = response.statusText;
 			return Promise.reject(new Error(error));
