@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.5.0](https://bitbucket.org/labor-digital/json-api/compare/v3.4.2...v3.5.0) (2020-04-19)
+
+
+### Features
+
+* update dependencies ([9fd3c0f](https://bitbucket.org/labor-digital/json-api/commit/9fd3c0fe01d7884d81991856c9afe1f7657f8ec8))
+
+
+### Bug Fixes
+
+* **JsonApi:** make sure all 2xx response codes are valid not only 200 ([5571082](https://bitbucket.org/labor-digital/json-api/commit/5571082f657457e368ec25fa86fba0babbe144e9))
+
 ### [3.4.2](https://bitbucket.org/labor-digital/json-api/compare/v3.4.1...v3.4.2) (2020-03-23)
 
 ### [3.4.1](https://bitbucket.org/labor-digital/json-api/compare/v3.4.0...v3.4.1) (2020-03-23)
