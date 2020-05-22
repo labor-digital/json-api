@@ -25,7 +25,7 @@ import {isString} from "@labor-digital/helferlein/lib/Types/isString";
 import {isUndefined} from "@labor-digital/helferlein/lib/Types/isUndefined";
 
 /**
- * An object representation of a simple state store.
+ * A simple store to hold and manipulate a generic state
  */
 export class State {
 	
@@ -50,7 +50,7 @@ export class State {
 	 * @param key
 	 * @param fallback
 	 */
-	get(key: string | Array<string>, fallback?) {
+	public get(key: string | Array<string>, fallback?) {
 		if (isArray(key) || isString(key) && key.indexOf(".") !== -1) return getPath(this._state, key, fallback);
 		if (isPlainObject(this._state) && !isUndefined(this._state[(key as string)])) return this._state[(key as string)];
 		return fallback;
@@ -60,7 +60,7 @@ export class State {
 	 * Returns true if a certain key exists in the state
 	 * @param key
 	 */
-	has(key: string | Array<string>): boolean {
+	public has(key: string | Array<string>): boolean {
 		return !isUndefined(this.get(key));
 	}
 	
@@ -70,7 +70,7 @@ export class State {
 	 * @param key
 	 * @param includeZero By default zero (0) is not seen as "empty" if you set this to true, it will be, tho
 	 */
-	hasValue(key: string | Array<string>, includeZero?: boolean): boolean {
+	public hasValue(key: string | Array<string>, includeZero?: boolean): boolean {
 		const value = this.get(key);
 		if (isUndefined(value)) return false;
 		return !isEmpty(value, includeZero);
@@ -79,14 +79,14 @@ export class State {
 	/**
 	 * Returns all key and value pairs that are currently inside the state
 	 */
-	getAll(): PlainObject {
+	public getAll(): PlainObject {
 		return {...this._state};
 	}
 	
 	/**
 	 * Destroys the internal state object
 	 */
-	destroy() {
+	public destroy() {
 		this._state = undefined;
 	}
 }

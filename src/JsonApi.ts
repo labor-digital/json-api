@@ -32,7 +32,9 @@ import {isString} from "@labor-digital/helferlein/lib/Types/isString";
 import {isUndefined} from "@labor-digital/helferlein/lib/Types/isUndefined";
 import axios, {AxiosInstance, AxiosResponse} from "axios";
 import {Deserializer} from "jsonapi-serializer";
-import {JsonApiArguments, JsonApiGetQuery, JsonApiResponse} from "./JsonApi.interfaces";
+import {Collection} from "./Elements/Collection";
+import {Resource} from "./Elements/Resource";
+import {JsonApiArguments, JsonApiElementInterface, JsonApiGetQuery, JsonApiResponse} from "./JsonApi.interfaces";
 import {JsonApiState} from "./JsonApiState";
 import {JsonApiStateList} from "./JsonApiStateList";
 
@@ -73,15 +75,15 @@ export class JsonApi {
 	}
 	
 	/**
-	 * Requests a resource list from the server
+	 * Requests a resource collection from the server
 	 *
 	 * @param resourceType The resource type to request from the server
 	 * @param query An optional query to use when requesting the resources
 	 * @param debounceLimit Can be used to debounce multiple, subsequent requests for a certain number of milli-seconds,
 	 *                      before they should be actually submitted to the server. Can be used to avoid multiple request
-	 *                      for text inputs or similar occurrences
+	 *                      for text inputs or similar occurrences.
 	 */
-	public get(resourceType: string, query?: JsonApiGetQuery, debounceLimit?: number): Promise<JsonApiStateList> {
+	public getCollection(resourceType: string, query?: JsonApiGetQuery, debounceLimit?: number): Promise<Collection> {
 		debounceLimit = isNumber(debounceLimit) ? debounceLimit : 0;
 		return debouncePromise(this._guid, () => {
 			const queryString = this.makeQueryString(query);
@@ -89,7 +91,42 @@ export class JsonApi {
 				.get("/" + resourceType + queryString)
 				.then(res => this.handleAxiosResponse(res));
 		}, debounceLimit, true);
-		
+	}
+	
+	/**
+	 * Requests a single resource item from the server
+	 *
+	 * @param resourceType The resource type to request from the server
+	 * @param id The id of the entity to request from the server. Set this to NULL if your endpoint does not
+	 *             require a unique id for requesting a single entity
+	 * @param query An optional query to use when requesting the resource
+	 * @param debounceLimit Can be used to debounce multiple, subsequent requests for a certain number of milli-seconds,
+	 *                      before they should be actually submitted to the server. Can be used to avoid multiple request
+	 *                      for text inputs or similar occurrences.
+	 */
+	public getResource(resourceType: string, id: number | string | null, query?: JsonApiGetQuery, debounceLimit?: number): Promise<Resource> {
+		debounceLimit = isNumber(debounceLimit) ? debounceLimit : 0;
+		return debouncePromise(this._guid, () => {
+			const queryString = this.makeQueryString(query);
+			return this.axios
+				.get("/" + resourceType + (isNull(id) ? "" : "/" + id) + queryString)
+				.then(res => this.handleAxiosResponse(res));
+		}, debounceLimit, true);
+	}
+	
+	/**
+	 * Requests a resource collection from the server
+	 *
+	 * @param resourceType The resource type to request from the server
+	 * @param query An optional query to use when requesting the resources
+	 * @param debounceLimit Can be used to debounce multiple, subsequent requests for a certain number of milli-seconds,
+	 *                      before they should be actually submitted to the server. Can be used to avoid multiple request
+	 *                      for text inputs or similar occurrences.
+	 *
+	 * @deprecated will be removed in v4.0 - use getCollection() instead.
+	 */
+	public get(resourceType: string, query?: JsonApiGetQuery, debounceLimit?: number): Promise<JsonApiStateList> {
+		return this.getCollection(resourceType, query, debounceLimit);
 	}
 	
 	/**
@@ -102,15 +139,11 @@ export class JsonApi {
 	 * @param debounceLimit Can be used to debounce multiple, subsequent requests for a certain number of milli-seconds,
 	 *                      before they should be actually submitted to the server. Can be used to avoid multiple request
 	 *                      for text inputs or similar occurrences
+	 *
+	 * @deprecated will be removed in v4.0 - use getResource() instead.
 	 */
 	public getSingle(resourceType: string, id: number | string | null, query?: JsonApiGetQuery, debounceLimit?: number): Promise<JsonApiState> {
-		debounceLimit = isNumber(debounceLimit) ? debounceLimit : 0;
-		return debouncePromise(this._guid, () => {
-			const queryString = this.makeQueryString(query);
-			return this.axios
-				.get("/" + resourceType + (isNull(id) ? "" : "/" + id) + queryString)
-				.then(res => this.handleAxiosResponse(res));
-		}, debounceLimit, true);
+		return this.getResource(resourceType, id, query, debounceLimit);
 	}
 	
 	/**
@@ -124,8 +157,9 @@ export class JsonApi {
 	
 	/**
 	 * Receives a raw json api response (presumably from an ajax request)
-	 * and converts it either into a json api state or a state list object, depending on the content
+	 * and converts it either into a json api state, or a state list object, depending on the content
 	 * @param response
+	 * @deprecated Will be removed in v4.0 use makeResourceOrCollection() instead!
 	 */
 	public makeStateOrStateList(response: PlainObject | JsonApiResponse): Promise<JsonApiState | JsonApiStateList> {
 		// Check if the response is already a json api response
@@ -139,6 +173,30 @@ export class JsonApi {
 			if (jsonResponse.isSingleResult)
 				return new JsonApiState(jsonResponse);
 			return new JsonApiStateList(jsonResponse);
+		});
+	}
+	
+	/**
+	 * Receives a raw json api response (presumably from an ajax request)
+	 * and converts it either into a json api state, or a state list object, depending on the content
+	 * @param data The data to convert into either a resource or a collection
+	 */
+	public makeResourceOrCollection(data: PlainObject | JsonApiResponse | JsonApiElementInterface): Promise<Resource | Collection> {
+		// Check if the data is already a json api element
+		if (isString((data as JsonApiElementInterface).jsonElementType))
+			return Promise.resolve(data as Collection);
+		
+		// Check if the response is already a json api response
+		if (isBool((data as JsonApiResponse).isSingleResult) && !isUndefined((data as JsonApiResponse).data))
+			return Promise.resolve((data as JsonApiResponse).isSingleResult ?
+				new Resource(data as JsonApiResponse) :
+				new Collection(data as JsonApiResponse));
+		
+		// Create using deserialization
+		return this.deserializeResponse(data).then(jsonResponse => {
+			if (jsonResponse.isSingleResult)
+				return new Resource(jsonResponse);
+			return new Collection(jsonResponse);
 		});
 	}
 	

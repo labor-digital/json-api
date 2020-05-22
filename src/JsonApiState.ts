@@ -16,30 +16,10 @@
  * Last modified: 2019.11.25 at 20:30
  */
 
-import {JsonApiResponse} from "./JsonApi.interfaces";
-import {State} from "./State";
+import {Resource} from "./Elements/Resource";
 
-
-export class JsonApiState extends State {
-	/**
-	 * Holds a reference to the response object
-	 */
-	protected _response: JsonApiResponse;
-	
-	/**
-	 * JsonApiSingleState constructor
-	 *
-	 * @param response
-	 */
-	constructor(response: JsonApiResponse) {
-		super(response.data);
-		this._response = response;
-	}
-	
-	/**
-	 * Returns the reference to the raw response object
-	 */
-	public get response(): JsonApiResponse {
-		return this._response;
-	}
+/**
+ * @deprecated will be removed in v4.0 use "Resource" instead!
+ */
+export class JsonApiState extends Resource {
 }

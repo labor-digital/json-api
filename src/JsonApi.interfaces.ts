@@ -18,7 +18,26 @@
 
 import {PlainObject} from "@labor-digital/helferlein/lib/Interfaces/PlainObject";
 import {AxiosInstance} from "axios";
+import {Resource} from "./Elements/Resource";
 import {JsonApiState} from "./JsonApiState";
+
+export type JsonApiElementType = "item" | "collection";
+
+export interface JsonApiElementInterface {
+	/**
+	 * Defines which type of element we work with
+	 */
+	jsonElementType: JsonApiElementType
+}
+
+export interface CollectionForEachCallbackType extends Function {
+	/**
+	 * Is called for every element of the iterated object
+	 * @param value The current value
+	 * @param key The current key
+	 */
+	(value?: Resource, key?: any): boolean | any;
+}
 
 export interface JsonApiArguments {
 	
@@ -110,7 +129,7 @@ export interface JsonApiResponse {
 	}
 }
 
-export interface ApiPagination {
+export interface JsonApiPagination {
 	/**
 	 * The current page we are showing
 	 * @var int
@@ -136,6 +155,16 @@ export interface ApiPagination {
 	itemCount: Number;
 }
 
+
+/**
+ * @deprecated will be removed in v4.0 use JsonApiPagination instead!
+ */
+export interface ApiPagination extends JsonApiPagination {
+}
+
+/**
+ * @deprecated will be removed in v4.0 use CollectionForEachCallbackType instead!
+ */
 export interface StateListForEachCallbackType extends Function {
 	/**
 	 * Is called for every element of the iterated object
