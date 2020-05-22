@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>JsonApiArguments | @labor-digital/json-api</title>
+	<title>JsonApiPagination | @labor-digital/json-api</title>
 	<meta name="description" content="Documentation for @labor-digital/json-api">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/_jsonapi_interfaces_.html">&quot;JsonApi.interfaces&quot;</a>
 				</li>
 				<li>
-					<a href="_jsonapi_interfaces_.jsonapiarguments.html">JsonApiArguments</a>
+					<a href="_jsonapi_interfaces_.jsonapipagination.html">JsonApiPagination</a>
 				</li>
 			</ul>
-			<h1>Interface JsonApiArguments</h1>
+			<h1>Interface JsonApiPagination</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,12 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">JsonApiArguments</span>
+						<span class="target">JsonApiPagination</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="_jsonapi_interfaces_.apipagination.html" class="tsd-signature-type">ApiPagination</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -84,8 +89,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_jsonapi_interfaces_.jsonapiarguments.html#axios" class="tsd-kind-icon">axios</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_jsonapi_interfaces_.jsonapiarguments.html#baseurl" class="tsd-kind-icon">base<wbr>Url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_jsonapi_interfaces_.jsonapipagination.html#itemcount" class="tsd-kind-icon">item<wbr>Count</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_jsonapi_interfaces_.jsonapipagination.html#page" class="tsd-kind-icon">page</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_jsonapi_interfaces_.jsonapipagination.html#pagesize" class="tsd-kind-icon">page<wbr>Size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_jsonapi_interfaces_.jsonapipagination.html#pages" class="tsd-kind-icon">pages</a></li>
 							</ul>
 						</section>
 					</div>
@@ -94,35 +101,83 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="axios" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> axios</h3>
-					<div class="tsd-signature tsd-kind-icon">axios<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">AxiosInstance</span></div>
+					<a name="itemcount" class="tsd-anchor"></a>
+					<h3>item<wbr>Count</h3>
+					<div class="tsd-signature tsd-kind-icon">item<wbr>Count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/labor-digital/json-api/blob/36f3292/src/JsonApi.interfaces.ts#L48">src/JsonApi.interfaces.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/labor-digital/json-api/blob/36f3292/src/JsonApi.interfaces.ts#L155">src/JsonApi.interfaces.ts:155</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>If given, this will override all other arguments.
-							If not given we create our own axios instance</p>
+							<p>The number of all items in the set</p>
 						</div>
+						<dl class="tsd-comment-tags">
+							<dt>var</dt>
+							<dd><p>int</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="baseurl" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> base<wbr>Url</h3>
-					<div class="tsd-signature tsd-kind-icon">base<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="page" class="tsd-anchor"></a>
+					<h3>page</h3>
+					<div class="tsd-signature tsd-kind-icon">page<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/labor-digital/json-api/blob/36f3292/src/JsonApi.interfaces.ts#L54">src/JsonApi.interfaces.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/labor-digital/json-api/blob/36f3292/src/JsonApi.interfaces.ts#L137">src/JsonApi.interfaces.ts:137</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The base url for the api.
-							If not given we will assume &quot;$host/api/resources&quot;</p>
+							<p>The current page we are showing</p>
 						</div>
+						<dl class="tsd-comment-tags">
+							<dt>var</dt>
+							<dd><p>int</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="pagesize" class="tsd-anchor"></a>
+					<h3>page<wbr>Size</h3>
+					<div class="tsd-signature tsd-kind-icon">page<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/labor-digital/json-api/blob/36f3292/src/JsonApi.interfaces.ts#L149">src/JsonApi.interfaces.ts:149</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The maximum number of items on a single page</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>var</dt>
+							<dd><p>int</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="pages" class="tsd-anchor"></a>
+					<h3>pages</h3>
+					<div class="tsd-signature tsd-kind-icon">pages<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/labor-digital/json-api/blob/36f3292/src/JsonApi.interfaces.ts#L143">src/JsonApi.interfaces.ts:143</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The number of all pages we have</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>var</dt>
+							<dd><p>int</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 			</section>
@@ -164,30 +219,36 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_jsonapi_interfaces_.collectionforeachcallbacktype.html" class="tsd-kind-icon">Collection<wbr>For<wbr>Each<wbr>Callback<wbr>Type</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_jsonapi_interfaces_.jsonapiarguments.html" class="tsd-kind-icon">Json<wbr>Api<wbr>Arguments</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_jsonapi_interfaces_.jsonapiarguments.html#axios" class="tsd-kind-icon">axios</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_jsonapi_interfaces_.jsonapiarguments.html#baseurl" class="tsd-kind-icon">base<wbr>Url</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_jsonapi_interfaces_.jsonapielementinterface.html" class="tsd-kind-icon">Json<wbr>Api<wbr>Element<wbr>Interface</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_jsonapi_interfaces_.jsonapigetquery.html" class="tsd-kind-icon">Json<wbr>Api<wbr>Get<wbr>Query</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
 						<a href="_jsonapi_interfaces_.jsonapipagination.html" class="tsd-kind-icon">Json<wbr>Api<wbr>Pagination</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_jsonapi_interfaces_.jsonapipagination.html#itemcount" class="tsd-kind-icon">item<wbr>Count</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_jsonapi_interfaces_.jsonapipagination.html#page" class="tsd-kind-icon">page</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_jsonapi_interfaces_.jsonapipagination.html#pagesize" class="tsd-kind-icon">page<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_jsonapi_interfaces_.jsonapipagination.html#pages" class="tsd-kind-icon">pages</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_jsonapi_interfaces_.jsonapiresponse.html" class="tsd-kind-icon">Json<wbr>Api<wbr>Response</a>
 					</li>
