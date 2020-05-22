@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.6.0](https://bitbucket.org/labor-digital/json-api/compare/v3.5.0...v3.6.0) (2020-05-22)
+
+
+### Features
+
+* deprecate JsonApiState + JsonApiStateList in favour of Resource and Collection ([0cd4e10](https://bitbucket.org/labor-digital/json-api/commit/0cd4e10baef3676fd8ce27ad5409427f7cfcfb6d))
+* update dependencies ([36f3292](https://bitbucket.org/labor-digital/json-api/commit/36f3292b73e8241b2cdd35ebea8a0a91982b87a6))
+
 ## [3.5.0](https://bitbucket.org/labor-digital/json-api/compare/v3.4.2...v3.5.0) (2020-04-19)
 
 
