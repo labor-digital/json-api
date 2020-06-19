@@ -84,9 +84,10 @@ export class JsonApi {
 	 *                      for text inputs or similar occurrences.
 	 */
 	public getCollection(resourceType: string, query?: JsonApiGetQuery, debounceLimit?: number): Promise<Collection> {
+		const queryString = this.makeQueryString(query);
+		const guid = this._guid + "-" + resourceType + "-" + this.makeQueryString(query);
 		debounceLimit = isNumber(debounceLimit) ? debounceLimit : 0;
-		return debouncePromise(this._guid, () => {
-			const queryString = this.makeQueryString(query);
+		return debouncePromise(guid, () => {
 			return this.axios
 				.get("/" + resourceType + queryString)
 				.then(res => this.handleAxiosResponse(res));
@@ -105,9 +106,10 @@ export class JsonApi {
 	 *                      for text inputs or similar occurrences.
 	 */
 	public getResource(resourceType: string, id: number | string | null, query?: JsonApiGetQuery, debounceLimit?: number): Promise<Resource> {
+		const queryString = this.makeQueryString(query);
+		const guid = this._guid + "-" + resourceType + "-" + id + "-" + this.makeQueryString(query);
 		debounceLimit = isNumber(debounceLimit) ? debounceLimit : 0;
-		return debouncePromise(this._guid, () => {
-			const queryString = this.makeQueryString(query);
+		return debouncePromise(guid, () => {
 			return this.axios
 				.get("/" + resourceType + (isNull(id) ? "" : "/" + id) + queryString)
 				.then(res => this.handleAxiosResponse(res));
