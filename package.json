@@ -1,6 +1,6 @@
 {
 	"name": "@labor-digital/json-api",
-	"version": "3.6.1",
+	"version": "3.6.2",
 	"description": "Provides the implementation to communicate with an json api compatible endpoint",
 	"directories": {
 		"lib": "lib"
