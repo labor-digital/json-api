@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.6.3](https://bitbucket.org/labor-digital/json-api/compare/v3.6.2...v3.6.3) (2020-07-20)
+
+
+### Bug Fixes
+
+* update dependencies ([fd6f79f](https://bitbucket.org/labor-digital/json-api/commit/fd6f79f36c3e69d7bdbb8e0c4473165edc8c699c))
+
 ### [3.6.2](https://bitbucket.org/labor-digital/json-api/compare/v3.6.1...v3.6.2) (2020-07-20)
 
 
