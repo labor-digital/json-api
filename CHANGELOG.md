@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.7.0](https://bitbucket.org/labor-digital/json-api/compare/v3.6.3...v3.7.0) (2020-09-30)
+
+
+### Features
+
+* **Collection:** make collections iterable ([371ca76](https://bitbucket.org/labor-digital/json-api/commit/371ca76b2372b2e20a59a43401d2a247553089aa))
+* **Resource:** add reactive getters for a resource object ([8d8945f](https://bitbucket.org/labor-digital/json-api/commit/8d8945fe25ccb4143c781568aca109bd5c15cbd9))
+
+
+### Bug Fixes
+
+* update dependencies ([d61c921](https://bitbucket.org/labor-digital/json-api/commit/d61c92113ee79f5a4d1eab555df7df713f27171d))
+
 ### [3.6.3](https://bitbucket.org/labor-digital/json-api/compare/v3.6.2...v3.6.3) (2020-07-20)
 
 
