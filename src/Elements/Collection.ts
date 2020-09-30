@@ -18,6 +18,7 @@
 
 import {PlainObject} from "@labor-digital/helferlein/lib/Interfaces/PlainObject";
 import {forEach} from "@labor-digital/helferlein/lib/Lists/forEach";
+import {map} from "@labor-digital/helferlein/lib/Lists/map";
 import {getPath} from "@labor-digital/helferlein/lib/Lists/Paths/getPath";
 import {hasPath} from "@labor-digital/helferlein/lib/Lists/Paths/hasPath";
 import {isPlainObject} from "@labor-digital/helferlein/lib/Types/isPlainObject";
@@ -32,7 +33,7 @@ import {
 import {State} from "../State";
 import {Resource} from "./Resource";
 
-export class Collection implements JsonApiElementInterface {
+export class Collection implements JsonApiElementInterface, Iterable<Resource> {
 	
 	/**
 	 * The pagination object or null
@@ -141,8 +142,17 @@ export class Collection implements JsonApiElementInterface {
 	/**
 	 * Returns the raw state array
 	 */
-	public getAll(): PlainObject {
+	public getAll(): Array<Resource> {
 		return this._byOrder;
+	}
+	
+	/**
+	 * Returns a raw array of all contained resources converted into a plain object
+	 */
+	public getRaw(): Array<PlainObject> {
+		return map(this._byOrder, (v: Resource) => {
+			return v.getAll();
+		});
 	}
 	
 	/**
@@ -164,5 +174,23 @@ export class Collection implements JsonApiElementInterface {
 	 */
 	public get meta(): State {
 		return this._meta;
+	}
+	
+	/**
+	 * Returns the iterator for the collection
+	 */
+	public [Symbol.iterator](): Iterator<Resource> {
+		const that = this;
+		return new class implements Iterator<Resource> {
+			protected _i = 0;
+			
+			public next(...args: [] | [undefined]): IteratorResult<Resource, any> {
+				if (this._i < that._byOrder.length) {
+					return {value: that._byOrder[this._i++], done: false};
+				} else {
+					return {value: undefined, done: true};
+				}
+			}
+		};
 	}
 }
