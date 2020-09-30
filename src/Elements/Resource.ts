@@ -17,6 +17,7 @@
  */
 
 
+import {forEach} from "@labor-digital/helferlein/lib/Lists/forEach";
 import {JsonApiElementInterface, JsonApiElementType, JsonApiResponse} from "../JsonApi.interfaces";
 import {State} from "../State";
 
@@ -35,6 +36,15 @@ export class Resource extends State implements JsonApiElementInterface {
 	constructor(response: JsonApiResponse) {
 		super(response.data);
 		this._response = response;
+		
+		// Define reactive getters
+		forEach(response.data, (v, k) => {
+			Object.defineProperty(this, k, {
+				get: function () {
+					return v;
+				}
+			});
+		});
 	}
 	
 	/**
