@@ -274,8 +274,10 @@ export class JsonApi {
 				isSingleResult: !isArray(data),
 				data: data
 			};
-			if (isPlainObject(response.meta)) apiResponse.meta = response.meta;
-			if (isPlainObject(response.links)) apiResponse.links = response.links;
+			if (isPlainObject(response.meta ?? null)) apiResponse.meta = response.meta;
+			if (isPlainObject(response.data.meta ?? null)) apiResponse.meta = response.data.meta;
+			if (isPlainObject(response.links ?? null)) apiResponse.links = response.links;
+			if (isPlainObject(response.data.links ?? null)) apiResponse.links = response.data.links;
 			apiResponse.status = getPath(response, "status", 200);
 			apiResponse.headers = getPath(response, "headers", {});
 			
