@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://bitbucket.org/labor-digital/json-api/compare/v3.7.1...v4.0.0) (2021-04-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update dependency of @labor-digital/helferlein to 4.0.5
+or higher
+
+### Features
+
+* update dependencies ([b5f17c3](https://bitbucket.org/labor-digital/json-api/commit/b5f17c3d857f4bfe80f000cbdc2eff95472b1878))
+* update dependencies ([c0ad2c5](https://bitbucket.org/labor-digital/json-api/commit/c0ad2c5d58f9a2f95a25781b9bb482885607f835))
+
 ### [3.7.1](https://bitbucket.org/labor-digital/json-api/compare/v3.7.0...v3.7.1) (2020-10-09)
 
 
