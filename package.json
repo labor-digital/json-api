@@ -13,7 +13,8 @@
 	"scripts": {
 		"build": "node flushLib.js && tsc",
 		"watch": "node flushLib.js && tsc --watch",
-		"doc": "typedoc --out doc --tsconfig ./tsconfig.json src --module commonjs && echo json-api.labor.tools >> doc/CNAME && touch doc/.nojekyll"
+		"doc": "typedoc --out doc --tsconfig ./tsconfig.json src",
+		"build:doc": "npm run doc && echo json-api.labor.tools >> doc/CNAME && touch doc/.nojekyll"
 	},
 	"author": "m.neundorfer@labor.digital",
 	"license": "Apache-2.0",
