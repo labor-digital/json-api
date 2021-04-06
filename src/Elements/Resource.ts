@@ -17,7 +17,7 @@
  */
 
 
-import {forEach} from "@labor-digital/helferlein/lib/Lists/forEach";
+import {forEach} from "@labor-digital/helferlein";
 import {JsonApiElementInterface, JsonApiElementType, JsonApiResponse} from "../JsonApi.interfaces";
 import {State} from "../State";
 

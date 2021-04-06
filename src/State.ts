@@ -16,13 +16,7 @@
  * Last modified: 2019.09.03 at 08:58
  */
 
-import {PlainObject} from "@labor-digital/helferlein/lib/Interfaces/PlainObject";
-import {getPath} from "@labor-digital/helferlein/lib/Lists/Paths/getPath";
-import {isArray} from "@labor-digital/helferlein/lib/Types/isArray";
-import {isEmpty} from "@labor-digital/helferlein/lib/Types/isEmpty";
-import {isPlainObject} from "@labor-digital/helferlein/lib/Types/isPlainObject";
-import {isString} from "@labor-digital/helferlein/lib/Types/isString";
-import {isUndefined} from "@labor-digital/helferlein/lib/Types/isUndefined";
+import {getPath, isArray, isEmpty, isPlainObject, isString, isUndefined, PlainObject} from "@labor-digital/helferlein";
 
 /**
  * A simple store to hold and manipulate a generic state

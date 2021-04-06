@@ -16,7 +16,7 @@
  * Last modified: 2019.08.11 at 21:27
  */
 
-import {PlainObject} from "@labor-digital/helferlein/lib/Interfaces/PlainObject";
+import {PlainObject} from "@labor-digital/helferlein";
 import {AxiosInstance} from "axios";
 import {Resource} from "./Elements/Resource";
 import {JsonApiState} from "./JsonApiState";

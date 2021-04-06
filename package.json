@@ -22,12 +22,12 @@
 	},
 	"peerDependencies": {
 		"axios": "*",
-		"@labor-digital/helferlein": "*"
+		"@labor-digital/helferlein": "^4.0.5"
 	},
 	"devDependencies": {
-		"@labor-digital/helferlein": "3.17.3",
+		"@labor-digital/helferlein": "^4.0.5",
 		"axios": "^0.21.1",
-		"typedoc": "0.20.16",
-		"typescript": "4.1.3"
+		"typedoc": "0.20.35",
+		"typescript": "4.2.3"
 	}
 }

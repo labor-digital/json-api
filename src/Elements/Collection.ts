@@ -16,13 +16,7 @@
  * Last modified: 2020.05.22 at 21:45
  */
 
-import {PlainObject} from "@labor-digital/helferlein/lib/Interfaces/PlainObject";
-import {forEach} from "@labor-digital/helferlein/lib/Lists/forEach";
-import {map} from "@labor-digital/helferlein/lib/Lists/map";
-import {getPath} from "@labor-digital/helferlein/lib/Lists/Paths/getPath";
-import {hasPath} from "@labor-digital/helferlein/lib/Lists/Paths/hasPath";
-import {isPlainObject} from "@labor-digital/helferlein/lib/Types/isPlainObject";
-import {isUndefined} from "@labor-digital/helferlein/lib/Types/isUndefined";
+import {forEach, getPath, hasPath, isPlainObject, isUndefined, map, PlainObject} from "@labor-digital/helferlein";
 import {
 	CollectionForEachCallbackType,
 	JsonApiElementInterface,
