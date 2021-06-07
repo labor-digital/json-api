@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.1](https://bitbucket.org/labor-digital/json-api/compare/v4.0.0...v4.0.1) (2021-06-07)
+
 ## [4.0.0](https://bitbucket.org/labor-digital/json-api/compare/v3.7.1...v4.0.0) (2021-04-06)
 
 
